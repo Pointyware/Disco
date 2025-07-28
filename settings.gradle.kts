@@ -14,7 +14,7 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Ember"
+rootProject.name = "Disco"
 include(
     ":app-android",
     ":app-desktop",

@@ -1,5 +1,5 @@
 # Module Feature Evolution
-This module provides the Evolution feature of the Ember application.
+This module provides the Evolution feature of the Disco application.
 It includes functionality for generating models from genetic strings as well
 mixing and mutating them.
 

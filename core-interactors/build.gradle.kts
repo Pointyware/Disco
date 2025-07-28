@@ -34,7 +34,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.artes.interactors"
+    namespace = "org.pointyware.disco.interactors"
     compileSdk = 35
 
     defaultConfig {

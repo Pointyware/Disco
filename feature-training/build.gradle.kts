@@ -65,7 +65,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.ember.training"
+    namespace = "org.pointyware.disco.training"
     compileSdk = 35
 
     defaultConfig {
@@ -83,6 +83,6 @@ dependencies {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "org.pointyware.ember.training"
+    packageOfResClass = "org.pointyware.disco.training"
     generateResClass = always
 }

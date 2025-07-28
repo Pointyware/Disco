@@ -21,7 +21,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.artes.entities"
+    namespace = "org.pointyware.disco.entities"
     compileSdk = 35
 
     defaultConfig {

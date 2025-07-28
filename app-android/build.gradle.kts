@@ -24,7 +24,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.ember"
+    namespace = "org.pointyware.disco"
     compileSdk = 35
 
     defaultConfig {

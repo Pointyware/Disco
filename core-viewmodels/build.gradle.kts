@@ -36,7 +36,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.artes.viewmodels"
+    namespace = "org.pointyware.disco.viewmodels"
     compileSdk = 35
 
     defaultConfig {

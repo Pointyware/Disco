@@ -64,7 +64,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.ember.ui"
+    namespace = "org.pointyware.disco.ui"
     compileSdk = 35
 
     defaultConfig {
@@ -82,6 +82,6 @@ dependencies {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "org.pointyware.ember.ui"
+    packageOfResClass = "org.pointyware.disco.ui"
     generateResClass = always
 }

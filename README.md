@@ -1,4 +1,4 @@
-# Ember
+# Disco
 This project started as a small attempt to recreate some machine learning primitives from 
 scratch in Kotlin.
 I quickly realized while doing research that I could fairly easily build a small set of primitives

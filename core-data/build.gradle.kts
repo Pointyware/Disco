@@ -53,7 +53,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.artes.data"
+    namespace = "org.pointyware.disco.data"
     compileSdk = 35
 
     defaultConfig {
@@ -64,7 +64,7 @@ android {
 sqldelight {
     databases {
         create("HostDb") {
-            packageName = "org.pointyware.artes.data.hosts.db"
+            packageName = "org.pointyware.disco.data.hosts.db"
         }
     }
 }

@@ -64,7 +64,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.ember.evolution"
+    namespace = "org.pointyware.disco.evolution"
     compileSdk = 35
 
     defaultConfig {
@@ -82,6 +82,6 @@ dependencies {
 
 compose.resources {
     publicResClass = true
-    packageOfResClass = "org.pointyware.ember.evolution"
+    packageOfResClass = "org.pointyware.disco.evolution"
     generateResClass = always
 }
