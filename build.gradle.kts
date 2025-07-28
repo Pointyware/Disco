@@ -16,6 +16,12 @@ plugins {
     alias(libs.plugins.kotlinxKover)
 }
 
+val projectVersion = libs.versions.project.toString()
+subprojects {
+    group = "org.pointyware.disco"
+    version = projectVersion
+}
+
 dependencies {
     kover(projects.coreEntities)
     kover(projects.coreData)
