@@ -1,0 +1,87 @@
+package org.pointyware.disco.training.entities
+
+import org.pointyware.disco.entities.DataList
+import kotlin.time.Clock
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
+
+/**
+ * A statistics object receives updates throughout training in order to collect
+ * information to assess training performance.
+ */
+interface Statistics {
+    /**
+     * Lists the measurements taken by this object.
+     */
+    val measurements: List<Measurement<*>>
+    fun measurementMaximum(key: Measurement<Float>): Float
+    val measurementsMax: Float
+    val epochCount: Int
+    // <I: Number, O: Comparable<O>>
+    fun data(key: Measurement<Float>): DataList<Float, Float>
+
+    /**
+     * Collects all measures into a single immutable object
+     */
+    fun createSnapshot(): Snapshot
+}
+
+/**
+ *
+ */
+@OptIn(ExperimentalTime::class)
+data class Snapshot(
+    val epoch: Int,
+    val measurements: Map<Measurement<Float>, Map<Float, Float>>,
+    val timestamp: Instant = Clock.System.now(),
+) {
+
+    val floor: Float = if (measurements.isNotEmpty()) {
+        measurements.maxOf { it.value.values.max() }
+    } else 0f
+    val ceiling: Float = if (measurements.isNotEmpty()) {
+        measurements.minOf { it.value.values.min() }
+    } else 0f
+
+    companion object {
+        val empty = Snapshot(
+            epoch = 0,
+            measurements = emptyMap()
+        )
+    }
+}
+
+/**
+ *
+ */
+interface EpochStatistics: Statistics {
+    fun onEpochStart(epoch: Int, context: ComputationContext)
+    fun onEpochEnd(epoch: Int, context: ComputationContext)
+}
+
+/**
+ *
+ */
+interface BatchStatistics: Statistics {
+    fun onBatchStart(batch: List<Exercise>)
+    fun onBatchEnd(batch: List<Exercise>)
+}
+
+/**
+ *
+ */
+interface SampleStatistics: Statistics {
+    fun onSampleStart(sample: Exercise)
+    fun onCost(cost: Double)
+    fun onGradient()
+    fun onSampleEnd(sample: Exercise)
+}
+
+/**
+ *
+ */
+interface LayerStatistics: Statistics {
+    fun onPreActivation()
+    fun onActivation()
+    fun onGradient()
+}

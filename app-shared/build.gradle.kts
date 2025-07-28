@@ -69,7 +69,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.ember.shared"
+    namespace = "org.pointyware.disco.shared"
     compileSdk = 35
 
     defaultConfig {
@@ -88,5 +88,5 @@ dependencies {
 compose.resources {
     generateResClass = always
     publicResClass = true
-    packageOfResClass = "org.pointyware.ember.shared"
+    packageOfResClass = "org.pointyware.disco.shared"
 }

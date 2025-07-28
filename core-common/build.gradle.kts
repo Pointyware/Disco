@@ -30,7 +30,7 @@ kotlin {
 }
 
 android {
-    namespace = "org.pointyware.artes.common"
+    namespace = "org.pointyware.disco.common"
     compileSdk = 35
 
     defaultConfig {

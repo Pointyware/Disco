@@ -10,7 +10,7 @@ kotlin {
     jvm("desktop") {
 //        @OptIn(ExperimentalKotlinGradlePluginApi::class)
 //        mainRun {
-//            mainClass = "org.pointyware.ember.MainKt"
+//            mainClass = "org.pointyware.disco.MainKt"
 //        }
     }
 
@@ -38,7 +38,7 @@ kotlin {
 compose {
     desktop {
         application {
-            mainClass = "org.pointyware.ember.ApplicationKt"
+            mainClass = "org.pointyware.disco.ApplicationKt"
         }
     }
 }

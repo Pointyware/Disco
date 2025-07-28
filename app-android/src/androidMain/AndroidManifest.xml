@@ -1,13 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name="org.pointyware.artes.EmberApplication"
+        android:name="org.pointyware.disco.DiscoApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
         <activity
-            android:name="org.pointyware.artes.MainActivity"
+            android:name="org.pointyware.disco.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.Ember">
+            android:theme="@style/Theme.Disco">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
