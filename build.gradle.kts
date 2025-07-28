@@ -12,6 +12,7 @@ plugins {
 
     alias(libs.plugins.sqlDelight) apply false
     alias(libs.plugins.ksp) apply false
+    alias(libs.plugins.publishMultiplatform) apply false
 
     alias(libs.plugins.kotlinxKover)
 }

@@ -70,4 +70,5 @@ kotlinCocoapods         = { id = "org.jetbrains.kotlin.native.cocoapods", versio
 kotlinxKover            = { id = "org.jetbrains.kotlinx.kover", version.ref = "kover" }
 kotlinxSerialization    = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 ksp                     = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+publishMultiplatform    = { id = "com.vanniktech.maven.publish", version = "0.34.0" }
 sqlDelight              = { id = "app.cash.sqldelight", version.ref = "sqlDelight" }
