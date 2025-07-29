@@ -2,6 +2,7 @@ package org.pointyware.disco.training.data
 
 import org.pointyware.disco.entities.tensors.columnVector
 import org.pointyware.disco.training.entities.Exercise
+import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.random.Random
@@ -19,10 +20,10 @@ class SpiralExerciseGenerator(
             val phaseOffset = if (classId == 0) {
                 0.0
             } else {
-                Math.PI
+                PI
             }
             val t = Random.Default.nextFloat()
-            val theta = 2 * Math.PI * t * problem.spiralCount + phaseOffset
+            val theta = 2 * PI * t * problem.spiralCount + phaseOffset
             val x = t * cos(theta) * problem.xMagnitude
             val y = t * sin(theta) * problem.yMagnitude
             Exercise(
