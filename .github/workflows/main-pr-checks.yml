@@ -31,3 +31,13 @@ jobs:
       - name: Build Desktop App
         run: |
           ./gradlew desktopTest
+
+  build-app-ios:
+    if: github.event.pull_request.draft == false
+    runs-on: macos-latest
+    steps:
+      - name: Setup
+        uses: Pointyware/.github/.github/actions/checkout-java-gradle@69eb71701edc0705172789b1299946fd27fcadac
+      - name: Build Desktop App
+        run: |
+          ./gradlew iosX64Binaries iosArm64Binaries iosSimulatorArm64Binaries
