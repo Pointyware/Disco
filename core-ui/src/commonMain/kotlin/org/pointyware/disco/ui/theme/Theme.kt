@@ -77,7 +77,7 @@ val DarkColors = darkColorScheme(
 
 internal fun simpleColorScheme(darkTheme: Boolean): ColorScheme {
     return if (darkTheme) DarkColors else LightColors
-}
+} // TODO: create dynamic cross platform theme?
 
 @Composable
 expect fun colorScheme(darkTheme: Boolean, dynamicTheme: Boolean): ColorScheme

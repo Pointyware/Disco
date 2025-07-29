@@ -1,9 +1,11 @@
 package org.pointyware.disco.tensors
 
-import org.junit.Test
 import org.pointyware.disco.entities.tensors.Tensor
+import kotlin.experimental.ExperimentalNativeApi
+import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
+@OptIn(ExperimentalNativeApi::class)
 class TensorArithmeticUnitTest {
 
     @Test

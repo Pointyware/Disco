@@ -1,7 +1,9 @@
 package org.pointyware.disco.evolution
 
+import kotlin.experimental.ExperimentalNativeApi
 import kotlin.test.Test
 
+@OptIn(ExperimentalNativeApi::class)
 class AminoAcidUnitTest {
 
     @Test

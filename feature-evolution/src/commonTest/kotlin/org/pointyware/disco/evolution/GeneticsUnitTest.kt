@@ -1,7 +1,7 @@
 package org.pointyware.disco.evolution
 
-import org.junit.Test
 import kotlin.random.Random
+import kotlin.test.Test
 
 class GeneticsUnitTest {
 

@@ -1,11 +1,13 @@
 package org.pointyware.disco.layers
 
-import org.junit.Test
 import org.pointyware.disco.entities.activations.ActivationFunction
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.tensors.Tensor
+import kotlin.experimental.ExperimentalNativeApi
+import kotlin.test.Test
 import kotlin.test.assertEquals
 
+@OptIn(ExperimentalNativeApi::class)
 class LinearLayerUnitTest {
 
     private val errorOpActivation = object : ActivationFunction {

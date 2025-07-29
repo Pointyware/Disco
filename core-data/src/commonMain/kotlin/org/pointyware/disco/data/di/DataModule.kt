@@ -4,6 +4,7 @@ import app.cash.sqldelight.db.SqlDriver
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.IO
 import kotlinx.coroutines.SupervisorJob
 import org.koin.core.module.Module
 import org.koin.core.qualifier.named
