@@ -29,6 +29,7 @@ include(
     ":core-interactors",
     ":core-viewmodels",
     ":core-entities",
+    ":core-all"
 )
 
 include(
