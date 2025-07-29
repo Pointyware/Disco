@@ -19,7 +19,7 @@ private fun TrainingViewPreview() {
             DataSeries(
                 label = "Hello",
                 color = 0L,
-                dataPoints = listOf(
+                dataPoints = mapOf(
                     1f to 2f,
                     2f to 1f,
                     3f to 4f,
