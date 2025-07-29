@@ -11,7 +11,11 @@ kotlin {
     androidTarget() {
 
     }
+    iosX64()
+    iosArm64()
+    iosSimulatorArm64()
 
+    applyDefaultHierarchyTemplate()
     sourceSets {
         val commonMain by getting {
             dependencies {
@@ -21,7 +25,6 @@ kotlin {
                 implementation(libs.koin.coroutines)
 
                 api(libs.ktor.clientCore)
-                api(libs.ktor.clientOkhttp)
                 api(libs.ktor.clientLogging)
                 api(libs.ktor.clientResources)
                 api(libs.ktor.clientContentNegotiation)
@@ -40,13 +43,21 @@ kotlin {
         val desktopMain by getting {
             dependencies {
 //                implementation(libs.ktor)
+                api(libs.ktor.clientOkhttp)
                 implementation(libs.sqlDelight.jvm)
             }
         }
         val androidMain by getting {
             dependencies {
 //                implementation(libs.ktor.clientAndroid)
+                api(libs.ktor.clientOkhttp)
                 implementation(libs.sqlDelight.android)
+            }
+        }
+        val iosMain by getting {
+            dependencies {
+                api(libs.ktor.clientDarwin)
+                implementation(libs.sqlDelight.native)
             }
         }
     }
