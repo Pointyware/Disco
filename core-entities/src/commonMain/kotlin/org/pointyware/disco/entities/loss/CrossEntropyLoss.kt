@@ -23,9 +23,7 @@ object CrossEntropyLoss : LossFunction {
 
     override fun derivative(expected: Tensor, actual: Tensor): Tensor {
         require(actual.dimensions.size == expected.dimensions.size) {
-            "Expected and actual tensors must have the same dimensions. %i != %i".format(
-                actual.dimensions, expected.dimensions
-            )
+            "Expected and actual tensors must have the same dimensions. ${actual.dimensions} != ${expected.dimensions}"
         }
 
         return Tensor(actual.dimensions).mapEachFlatIndexed { index, _ ->
@@ -39,9 +37,7 @@ object CrossEntropyLoss : LossFunction {
         derivative: Tensor
     ): Double {
         require(actual.dimensions.size == expected.dimensions.size) {
-            "Expected and actual tensors must have the same dimensions. %i != %i".format(
-                actual.dimensions, expected.dimensions
-            )
+            "Expected and actual tensors must have the same dimensions. ${actual.dimensions} != ${expected.dimensions}"
         }
 
         val logProbs = Tensor.zeros(*actual.dimensions).mapEachFlatIndexed { index, _ ->
