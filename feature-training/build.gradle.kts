@@ -24,10 +24,10 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                implementation(projects.coreCommon)
-                implementation(projects.coreEntities)
-                implementation(projects.coreViewmodels)
-                implementation(projects.coreUi)
+                api(projects.coreCommon)
+                api(projects.coreEntities)
+                api(projects.coreViewmodels)
+                api(projects.coreUi)
 
                 api(compose.ui)
                 api(compose.foundation)
