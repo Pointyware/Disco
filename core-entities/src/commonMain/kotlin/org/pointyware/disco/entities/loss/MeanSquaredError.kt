@@ -8,9 +8,7 @@ import org.pointyware.disco.entities.tensors.Tensor
 object MeanSquaredError : LossFunction {
     override fun compute(expected: Tensor, actual: Tensor): Double {
         require(actual.dimensions.size == expected.dimensions.size) {
-            "Expected and actual tensors must have the same dimensions. %i != %i".format(
-                actual.dimensions, expected.dimensions
-            )
+            "Expected and actual tensors must have the same dimensions. ${actual.dimensions} != ${expected.dimensions}"
         }
 
         val diffs = Tensor(actual.dimensions)
@@ -37,9 +35,7 @@ object MeanSquaredError : LossFunction {
         derivative: Tensor
     ): Double {
         require(actual.dimensions.size == expected.dimensions.size) {
-            "Expected and actual tensors must have the same dimensions. %i != %i".format(
-                actual.dimensions, expected.dimensions
-            )
+            "Expected and actual tensors must have the same dimensions. ${actual.dimensions} != ${expected.dimensions}"
         }
 
         val diffs = Tensor(actual.dimensions)
