@@ -1,11 +1,13 @@
 package org.pointyware.disco.entities.networks
 
-import org.junit.Test
 import org.pointyware.disco.entities.activations.ReLU
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.tensors.Tensor
+import kotlin.experimental.ExperimentalNativeApi
+import kotlin.test.Test
 import kotlin.test.assertContentEquals
 
+@OptIn(ExperimentalNativeApi::class)
 class SequentialNetworkUnitTest {
 
     @Test

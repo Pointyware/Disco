@@ -1,7 +1,9 @@
 package org.pointyware.disco.entities.tensors
 
+import kotlin.experimental.ExperimentalNativeApi
 import kotlin.test.Test
 
+@OptIn(ExperimentalNativeApi::class)
 class TensorPoolUnitTest {
     @Test
     fun test_same_dimensions_return_same_object() {
