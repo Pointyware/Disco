@@ -7,6 +7,7 @@ compose = "1.8.2"
 compose-navigation = "2.9.0-beta04"
 compose-viewmodels = "2.9.1"
 composeBom = "2025.07.00"
+dokka = "2.0.0"
 koin = "4.1.0"
 kotlin = "2.2.0"
 kotlinx = "1.10.2"
@@ -64,6 +65,7 @@ androidApplication      = { id = "com.android.application", version.ref = "agp" 
 androidLibrary          = { id = "com.android.library", version.ref = "agp" }
 composePlugin           = { id = "org.jetbrains.compose", version.ref = "compose" }
 composeCompiler         = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+dokka                   = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 kotlinAndroid           = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinJvm               = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinMultiplatform     = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
