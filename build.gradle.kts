@@ -65,7 +65,6 @@ dokka {
     dokkaPublications.html {
         suppressInheritedMembers = true
         failOnWarning = true
-        outputDirectory.set(layout.buildDirectory.dir("dokkaDir"))
     }
 //    dokkaSourceSets.configureEach {
 //        includes.from("README.md")
