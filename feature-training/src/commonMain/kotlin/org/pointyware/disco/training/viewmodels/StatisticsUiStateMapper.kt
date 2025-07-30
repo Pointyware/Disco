@@ -41,7 +41,6 @@ object MeasurementLabelMapper: Mapper<Measurement<Float>, String> {
             is Measurement.Given<*> -> input.label
             is Measurement.Intermediate<*> -> input.label
             is Measurement.Analytical<*> -> input.label
-            else -> "Deprecated" // TODO: remove after deprecation
         }
     }
 }
