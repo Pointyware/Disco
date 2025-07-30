@@ -28,10 +28,6 @@ subprojects {
     version = projectVersion
 }
 
-tasks.dokkaHtmlMultiModule {
-    moduleName.set("Disco")
-}
-
 dependencies {
     kover(projects.coreEntities)
     kover(projects.coreData)
@@ -65,20 +61,21 @@ subprojects {
 }
 
 dokka {
+    moduleName.set("Disco")
     dokkaPublications.html {
         suppressInheritedMembers = true
         failOnWarning = true
         outputDirectory.set(layout.buildDirectory.dir("dokkaDir"))
     }
-    dokkaSourceSets.configureEach {
-        includes.from("README.md")
-        sourceLink {
-            localDirectory.set(file("src/$name/kotlin"))
-            remoteUrl = uri("https://github.com/Pointyware/Disco/")
-            remoteLineSuffix.set("#L")
-        }
-        documentedVisibilities(VisibilityModifier.Public)
-    }
+//    dokkaSourceSets.configureEach {
+//        includes.from("README.md")
+//        sourceLink {
+//            localDirectory.set(file("src/$name/kotlin"))
+//            remoteUrl = uri("https://github.com/Pointyware/Disco/")
+//            remoteLineSuffix.set("#L")
+//        }
+//        documentedVisibilities(VisibilityModifier.Public)
+//    }
 //    dokkaSourceSets["commonMain"].apply {
 //        sourceLink {
 //            localDirectory.set(projectDir.resolve("src/commonMain/kotlin"))
