@@ -1,5 +1,4 @@
-import org.jetbrains.dokka.gradle.DokkaTask
-import java.net.URL
+import org.jetbrains.dokka.gradle.engine.parameters.VisibilityModifier
 
 plugins {
     alias(libs.plugins.kotlinMultiplatform) apply false
@@ -63,17 +62,42 @@ dependencies {
 
 subprojects {
     apply(plugin = "org.jetbrains.dokka")
+}
 
-    tasks.withType<DokkaTask>().configureEach {
-
-        dokkaSourceSets.configureEach {
-
-            sourceLink {
-                localDirectory.set(projectDir.resolve("src"))
-                remoteUrl.set(URL("https://github.com/Pointyware/XYZ/tree/main/src"))
-                remoteLineSuffix.set("#L")
-            }
+dokka {
+    dokkaPublications.html {
+        suppressInheritedMembers = true
+        failOnWarning = true
+        outputDirectory.set(layout.buildDirectory.dir("dokkaDir"))
+    }
+    dokkaSourceSets.configureEach {
+        includes.from("README.md")
+        sourceLink {
+            localDirectory.set(file("src/$name/kotlin"))
+            remoteUrl = uri("https://github.com/Pointyware/Disco/")
+            remoteLineSuffix.set("#L")
         }
+        documentedVisibilities(VisibilityModifier.Public)
+    }
+//    dokkaSourceSets["commonMain"].apply {
+//        sourceLink {
+//            localDirectory.set(projectDir.resolve("src/commonMain/kotlin"))
+//        }
+//    }
+//    dokkaSourceSets["androidMain"].apply {
+//        sourceLink {
+//            localDirectory.set(projectDir.resolve("src/androidMain/kotlin"))
+//        }
+//    }
+//    dokkaSourceSets["desktopMain"].apply {
+//        sourceLink {
+//            localDirectory.set(projectDir.resolve("src/desktopMain/kotlin"))
+//        }
+//    }
+    pluginsConfiguration.html {
+//        customStyleSheets.from("styles.css")
+//        customAssets.from("logo.png")
+        footerMessage.set("(c) Pointyware LLC")
     }
 }
 
