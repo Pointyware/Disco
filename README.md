@@ -10,22 +10,29 @@ Related: https://github.com/Pointyware/AI-Licensing
 
 ## ML Primitives
 
-| Category             | Name                          | Description                                   |
-|----------------------|-------------------------------|-----------------------------------------------|
-| Tensors              | Pools                         | Pools to store and reuse tensors by dimension |
-| Activation Functions | ReLU                          |                                               |
-|                      | Logistic                      |                                               |
-|                      | Tanh                          |                                               |
-| Layers               | Dense                         | Linear (Fully Connected)                      |
-|                      | Convolutional†                |                                               |
-| Networks             | Sequential Networks           |                                               |
-|                      | Residual Networks             |                                               |
-| Loss Functions       | Mean Squared Error            |                                               |
-|                      | Cross Entropy                 |                                               |
-| Optimizers           | Stochastic (Gradient Descent) |                                               |
-|                      | Adam†                         |                                               |
-| Training             | Sequential Trainer            |                                               |
-|                      | Organic Trainer†              |                                               |
+| Category             | Name                          | Description                                                                                                     |
+|----------------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Tensors              | Pools                         | Pools to store and reuse tensors by dimension                                                                   |
+| Activation Functions | ReLU                          | Rectified Linear Unit                                                                                           |
+|                      | Logistic                      | Often referred to as "the sigmoid"                                                                              |
+|                      | Tanh                          | Hyperbolic tangent                                                                                              |
+|                      | GELU†                         | Gaussian Error Linear Unit                                                                                      |
+|                      | Swish†                        | Linear interpolation between linear and ReLU                                                                    |
+|                      | SwiGLU†                       | Swish-based Gated Linear Unit                                                                                   |
+| Regularizers         | RMSNorm                       | Normalizes each input by the root-mean-squared across all inputs                                                |
+|                      | LayerNorm†                    |                                                                                                                 |
+| Layers               | Dense                         | Linear (Fully Connected)                                                                                        |
+|                      | Convolutional†                |                                                                                                                 |
+| Networks             | Sequential Networks           | Networks composed entirely of layers, each receiving a single input from the previous layer                     |
+|                      | Residual Networks             | Layer-based networks that allow skip connections                                                                |
+| Cost/Loss Functions  | Mean Squared Error            |                                                                                                                 |
+|                      | Cross Entropy Loss            | Converts the output predictions to                                                                              |
+| Optimizers           | Gradient Descent              | Computes gradients across all samples before updating parameters.                                               |
+|                      | Stochastic (Gradient Descent) | Computes gradients across stochastically selected samples before updating parameters.                           |
+|                      | Adam†                         | Momentum-based; performs multiple passes over samples and parameter updates in a single epoch                   |
+| Training             | Sequential Trainer            | Trainer for a Sequential Network                                                                                |
+|                      | AutoDiff Trainer              | Trainer for any network that produces a computation graph.                                                      |
+|                      | Organic Trainer†              | Trainer that modifies a network according to statistics; mimics neurogenesis and ablation at alternating stages |
 
 † - Planned/Experimental
 
