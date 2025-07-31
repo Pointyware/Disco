@@ -11,6 +11,8 @@ dokka = "2.0.0"
 koin = "4.1.0"
 kotlin = "2.2.0"
 kotlinx = "1.10.2"
+kotlinx-datetime = "0.6.0"
+kotlinx-html = "0.12.0"
 kover = "0.9.1"
 ksp = "2.1.20-2.0.1"
 ktor = "3.2.2"
@@ -35,6 +37,8 @@ kotlinx-coroutinesAndroid = { module = "org.jetbrains.kotlinx:kotlinx-coroutines
 kotlinx-coroutinesCore = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx"}
 kotlinx-coroutinesSwing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx"}
 kotlinx-coroutinesTest = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx"}
+kotlinx-dateTime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
+kotlinx-html-jvm = { module = "org.jetbrains.kotlinx:kotlinx-html-jvm", version.ref = "kotlinx-html" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serialization-json" }
 sqlDelight-runtime = { module = "app.cash.sqldelight:runtime", version.ref = "sqlDelight" }
 sqlDelight-android = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
