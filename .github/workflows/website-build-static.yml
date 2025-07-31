@@ -28,10 +28,10 @@ jobs:
           cd Disco
           ./gradlew dokkaGenerate
 
-      - name: "Build: Static Website"
-        run: |
-          cd Disco
-          ./gradlew :website:run --args="--out build/static-site"
+#      - name: "Build: Static Website"
+#        run: |
+#          cd Disco
+#          ./gradlew :website:run --args="--out build/static-site"
 
       - name: "Checkout Static Site"
         uses: actions/checkout@v4
@@ -46,7 +46,7 @@ jobs:
           cd Disco-static-site
           rm -rf ./*
           cp -r ../Disco/build/dokka/html ./docs/
-          cp -r ../Disco/website/build/static-site/* ./
+#          cp -r ../Disco/website/build/static-site/* ./
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add .
