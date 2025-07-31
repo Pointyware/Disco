@@ -1,0 +1,54 @@
+name: "CI / Build Static Website"
+#
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: "Setup and Build Project"
+    runs-on: [ubuntu-22.04]
+    steps:
+      - name: "Setup Java 21"
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
+      - name: "Setup Gradle"
+        uses: gradle/actions/setup-gradle@v3
+
+      - name: "Checkout Project"
+        uses: actions/checkout@v4
+        with:
+          path: 'Disco'
+
+      - name: "Build: Dokka Generate"
+        run: |
+          cd Disco
+          ./gradlew dokkaGenerate
+
+      - name: "Build: Static Website"
+        run: |
+          cd Disco
+          ./gradlew :website:run --args="--out build/static-site"
+
+      - name: "Checkout Static Site"
+        uses: actions/checkout@v4
+        with:
+          path: "Disco-static-site"
+          repository: 'Pointyware/Disco-static-site'
+          token: ${{ secrets.DISCO_STATIC_SITE_UPLOAD_TOKEN }}
+
+      - name: "Copy and Commit Static Site"
+        run: |
+          pwd
+          cd Disco-static-site
+          rm -rf ./*
+          cp -r ../Disco/build/dokka/html ./docs/
+          cp -r ../Disco/website/build/static-site/* ./
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add .
+          git commit -m "Update static site" --allow-empty
+          git push
