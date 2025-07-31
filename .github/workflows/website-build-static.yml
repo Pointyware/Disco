@@ -39,16 +39,16 @@ jobs:
           path: "Disco-static-site"
           repository: 'Pointyware/Disco-static-site'
           token: ${{ secrets.DISCO_STATIC_SITE_UPLOAD_TOKEN }}
-
       - name: "Copy and Commit Static Site"
         run: |
           pwd
           cd Disco-static-site
           rm -rf ./*
           cp -r ../Disco/build/dokka/html ./docs/
-#          cp -r ../Disco/website/build/static-site/* ./
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
           git add .
           git commit -m "Update static site" --allow-empty
           git push
+
+#          cp -r ../Disco/website/build/static-site/* ./
