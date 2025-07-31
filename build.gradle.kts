@@ -41,8 +41,8 @@ dependencies {
     kover(projects.appDesktop)
 
     dokka(projects.appShared)
-//    dokka(projects.appAndroid)
-//    dokka(projects.appDesktop)
+    dokka(projects.appAndroid)
+    dokka(projects.appDesktop)
 
     dokka(projects.featureTraining)
     dokka(projects.featureEvolution)
