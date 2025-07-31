@@ -10,27 +10,31 @@ Related: https://github.com/Pointyware/AI-Licensing
 
 ## ML Primitives
 
-- Tensors
-  - Pools to store and reuse tensors by dimension
-- Activation Functions
-  - ReLU
-  - Logistic
-  - Tanh
-- Layers
-  - Linear (Fully Connected)
-  - Exp: Convolutional
-- Networks
-  - Sequential Networks
-  - Residual Networks
-- Loss Functions
-  - Mean Squared Error
-  - Cross Entropy
-- Optimizers
-  - Stochastic (Gradient Descent)
-  - Exp: Adam
-- Training
-  - Sequential Trainer
-  - Exp: Organic Trainer
+| Category             | Name                          | Description                                                                                                     |
+|----------------------|-------------------------------|-----------------------------------------------------------------------------------------------------------------|
+| Tensors              | Pools                         | Pools to store and reuse tensors by dimension                                                                   |
+| Activation Functions | ReLU                          | Rectified Linear Unit                                                                                           |
+|                      | Logistic                      | Often referred to as "the sigmoid"                                                                              |
+|                      | Tanh                          | Hyperbolic tangent                                                                                              |
+|                      | GELU†                         | Gaussian Error Linear Unit                                                                                      |
+|                      | Swish†                        | Linear interpolation between linear and ReLU                                                                    |
+|                      | SwiGLU†                       | Swish-based Gated Linear Unit                                                                                   |
+| Regularizers         | RMSNorm                       | Normalizes each input by the root-mean-squared across all inputs                                                |
+|                      | LayerNorm†                    |                                                                                                                 |
+| Layers               | Dense                         | Linear (Fully Connected)                                                                                        |
+|                      | Convolutional†                |                                                                                                                 |
+| Networks             | Sequential Networks           | Networks composed entirely of layers, each receiving a single input from the previous layer                     |
+|                      | Residual Networks             | Layer-based networks that allow skip connections                                                                |
+| Cost/Loss Functions  | Mean Squared Error            |                                                                                                                 |
+|                      | Cross Entropy Loss            | Converts the output predictions to                                                                              |
+| Optimizers           | Gradient Descent              | Computes gradients across all samples before updating parameters.                                               |
+|                      | Stochastic (Gradient Descent) | Computes gradients across stochastically selected samples before updating parameters.                           |
+|                      | Adam†                         | Momentum-based; performs multiple passes over samples and parameter updates in a single epoch                   |
+| Training             | Sequential Trainer            | Trainer for a Sequential Network                                                                                |
+|                      | AutoDiff Trainer              | Trainer for any network that produces a computation graph.                                                      |
+|                      | Organic Trainer†              | Trainer that modifies a network according to statistics; mimics neurogenesis and ablation at alternating stages |
+
+† - Planned/Experimental
 
 ```mermaid
 classDiagram
@@ -134,6 +138,12 @@ classDiagram
 
 ## Project Structure
 
+The structure of this project is based on Clean Architecture applied to Android's MVVM architecture.
+UI and Data implementations occupy the outermost frameworks/drivers layer. ViewModels, 
+Repository Implementations, Data Source interfaces and occupy the adapter/interfaces layer. 
+Interactors and Repository interfaces occupy the application business layer.
+Entities occupy the enterprise business layer.
+
 ```mermaid
 
 graph
@@ -158,7 +168,15 @@ graph
 ```
 
 ## Research Citations
-1. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin. Attention is All You Need. *arXiv preprint arXiv:IDvN*, 2017
-2. Ravid Schwartz-Ziv, Naftali Tishby. Opening the Black Box of Deep Neural Networks via Information. *arXiv preprint arXiv:1703.00810v3*, 2017.
-3. 
-4. Author, Author. Title. *Publication*, Year.
+1. Jimmy Lei Ba, Jamie Ryan Kiros, Geoffrey E. Hinton. Layer Normalization. *arXiv:1607.06450v1*, 2016.
+2. Tianqi Chen, Ian Goodfellow, Jonathon Shlens. Net2Net: Accelerating Learning Via Knowledge Transfer. *arXiv:1511.05641v4*, 2016.
+3. David Ha, Jürgen Schmidhuber. World Models. *arXiv:1803.10122v4*, 2018.
+4. Edward Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yanzhi Li, Shean Wang, Lu Wang, Weizhu Chen. LoRA: Low-Rank Adaptation of Large Language Models. *arXiv:2106.09685v2*, 2021.
+5. Sergey Ioffe, Christian Szegedy. Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift. URL: https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf, retrieved 2025.
+6. Diederik P. Kingma, Jimmy Ba. Adam: A Method for Stochastic Optimization. *arXiv:1412.6980v9*, 2017.
+7. Hao Li, Zheng Xu, Gavin Taylor, Christoph Studer, Tom Goldstein. Visualizing the Loss Landscape of Neural Nets. *arXiv:1712.09913v3*, 2018.
+8. Alec Radford, Karthik Narasimhan, Tim Salimans, Ilya Sutskever. Improving Language Understanding by Generative Pre-Training. *arXiv:1810.04805v1*, 2018.
+9. Ravid Schwartz-Ziv, Naftali Tishby. Opening the Black Box of Deep Neural Networks via Information. *arXiv preprint arXiv:1703.00810v3*, 2017.
+10. Sathya Krishnan Suresh, Shunmugapriya P. Towards Smaller, Faster Decoder-Only Transformers: Architectural Variants and Their Implications. *arXiv:2404.14462v4*, 2024.
+11. Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin. Attention is All You Need. *arXiv preprint arXiv:IDvN*, 2017.
+12. Biao Zhang, Rico Sennrich. Root Mean Square Layer Normalization. *arXiv:1910.07467v1*, 2019.
