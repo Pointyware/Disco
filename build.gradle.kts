@@ -40,20 +40,20 @@ dependencies {
     kover(projects.appAndroid)
     kover(projects.appDesktop)
 
-    dokkaPlugin(projects.appShared)
-//    dokkaPlugin(projects.appAndroid)
-//    dokkaPlugin(projects.appDesktop)
+    dokka(projects.appShared)
+//    dokka(projects.appAndroid)
+//    dokka(projects.appDesktop)
 
-    dokkaPlugin(projects.featureTraining)
-    dokkaPlugin(projects.featureEvolution)
-    dokkaPlugin(projects.featureSimulation)
+    dokka(projects.featureTraining)
+    dokka(projects.featureEvolution)
+    dokka(projects.featureSimulation)
 
-    dokkaPlugin(projects.coreCommon)
-    dokkaPlugin(projects.coreEntities)
-    dokkaPlugin(projects.coreData)
-    dokkaPlugin(projects.coreInteractors)
-    dokkaPlugin(projects.coreViewmodels)
-    dokkaPlugin(projects.coreUi)
+    dokka(projects.coreCommon)
+    dokka(projects.coreEntities)
+    dokka(projects.coreData)
+    dokka(projects.coreInteractors)
+    dokka(projects.coreViewmodels)
+    dokka(projects.coreUi)
 }
 
 subprojects {
