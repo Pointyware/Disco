@@ -37,3 +37,5 @@ include(
     ":feature-simulation",
     ":feature-training",
 )
+
+include(":website")
