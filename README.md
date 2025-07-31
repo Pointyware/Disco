@@ -134,6 +134,12 @@ classDiagram
 
 ## Project Structure
 
+The structure of this project is based on Clean Architecture applied to Android's MVVM architecture.
+UI and Data implementations occupy the outermost frameworks/drivers layer. ViewModels, 
+Repository Implementations, Data Source interfaces and occupy the adapter/interfaces layer. 
+Interactors and Repository interfaces occupy the application business layer.
+Entities occupy the enterprise business layer.
+
 ```mermaid
 
 graph
