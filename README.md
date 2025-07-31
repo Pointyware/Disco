@@ -10,27 +10,24 @@ Related: https://github.com/Pointyware/AI-Licensing
 
 ## ML Primitives
 
-- Tensors
-  - Pools to store and reuse tensors by dimension
-- Activation Functions
-  - ReLU
-  - Logistic
-  - Tanh
-- Layers
-  - Linear (Fully Connected)
-  - Exp: Convolutional
-- Networks
-  - Sequential Networks
-  - Residual Networks
-- Loss Functions
-  - Mean Squared Error
-  - Cross Entropy
-- Optimizers
-  - Stochastic (Gradient Descent)
-  - Exp: Adam
-- Training
-  - Sequential Trainer
-  - Exp: Organic Trainer
+| Category             | Name                          | Description                                   |
+|----------------------|-------------------------------|-----------------------------------------------|
+| Tensors              | Pools                         | Pools to store and reuse tensors by dimension |
+| Activation Functions | ReLU                          |                                               |
+|                      | Logistic                      |                                               |
+|                      | Tanh                          |                                               |
+| Layers               | Dense                         | Linear (Fully Connected)                      |
+|                      | Convolutional†                |                                               |
+| Networks             | Sequential Networks           |                                               |
+|                      | Residual Networks             |                                               |
+| Loss Functions       | Mean Squared Error            |                                               |
+|                      | Cross Entropy                 |                                               |
+| Optimizers           | Stochastic (Gradient Descent) |                                               |
+|                      | Adam†                         |                                               |
+| Training             | Sequential Trainer            |                                               |
+|                      | Organic Trainer†              |                                               |
+
+† - Planned/Experimental
 
 ```mermaid
 classDiagram
