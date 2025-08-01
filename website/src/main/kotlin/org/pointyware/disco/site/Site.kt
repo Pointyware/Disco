@@ -17,13 +17,6 @@ fun buildSite(
     // no setup needed, just call the site function
     site(output) {
         homePage()
-        branch("privacy-policy") {
-            index(resourceFile = "docs/privacy-policy.html")
-        }
-
-        branch("terms-of-service") {
-            index(resourceFile = "docs/terms-of-service.html")
-        }
         file("CNAME", "CNAME")
         file("robots.txt", "robots.txt")
     }
