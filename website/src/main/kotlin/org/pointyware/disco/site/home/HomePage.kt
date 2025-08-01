@@ -61,7 +61,7 @@ fun DirectoryScope.homePage() {
                 }
                 val sourceLink = "docs/"
                 a(
-                    href = "https://$sourceLink"
+                    href = sourceLink
                 ) {
                     text(sourceLink)
                 }
