@@ -17,7 +17,7 @@ fun buildSite(
     // no setup needed, just call the site function
     site(output) {
         homePage()
-        file("CNAME", "CNAME")
-        file("robots.txt", "robots.txt")
+        file("CNAME")
+        file("robots.txt")
     }
 }

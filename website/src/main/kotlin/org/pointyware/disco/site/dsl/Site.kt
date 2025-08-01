@@ -114,19 +114,19 @@ interface BranchScope {
     }
 
     /**
-     * Copies the resource file indicated by [resourceFile] into a file with the given [name],
+     * Copies the resource file indicated by [sourceName] into a file with the given [destinationName],
      * unsanitized.
      */
     fun file(
-        name: String,
-        resourceFile: String
+        sourceName: String,
+        destinationName: String = sourceName
     ) {
-        val sourceInputStream = this.javaClass.classLoader.getResourceAsStream(resourceFile)
-            ?: throw IllegalArgumentException("Resource file not found: $resourceFile")
+        val sourceInputStream = this.javaClass.classLoader.getResourceAsStream(sourceName)
+            ?: throw IllegalArgumentException("Resource file not found: $sourceName")
 
         when (val capture = location) {
             is ProgramOutput.FileOutput -> {
-                val pageFile = File(capture.file, name)
+                val pageFile = File(capture.file, destinationName)
                 pageFile.outputStream().use { outputStream ->
                     sourceInputStream.use { fileStream ->
                         fileStream.copyTo(outputStream)
@@ -134,7 +134,7 @@ interface BranchScope {
                 }
             }
             is ProgramOutput.PrintOutput -> {
-                capture.stream.println("Printing file: ${capture.path}/$name")
+                capture.stream.println("Printing file: ${capture.path}/$destinationName")
                 capture.stream.let { printStream ->
                     sourceInputStream.use { fileStream ->
                         fileStream.copyTo(printStream)
