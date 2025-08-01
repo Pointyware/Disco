@@ -55,7 +55,17 @@ fun DirectoryScope.homePage() {
             }
         }
         body {
-            // TODO: disco description
+            div {
+                h1 {
+                    text("Docs")
+                }
+                val sourceLink = "docs/"
+                a(
+                    href = "https://$sourceLink"
+                ) {
+                    text(sourceLink)
+                }
+            }
 
             footer {
                 p {
