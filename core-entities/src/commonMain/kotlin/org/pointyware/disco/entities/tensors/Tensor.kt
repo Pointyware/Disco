@@ -1,6 +1,6 @@
 package org.pointyware.disco.entities.tensors
 
-import org.pointyware.disco.entities.Marsaglia
+import org.pointyware.disco.entities.math.Marsaglia
 import kotlin.math.max
 
 fun absoluteIndex(dimensions: IntArray, indices: IntArray): Int {
