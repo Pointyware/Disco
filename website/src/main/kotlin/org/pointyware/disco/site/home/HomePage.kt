@@ -2,7 +2,7 @@
  * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site.home
+package org.pointyware.disco.site.home
 
 import kotlinx.html.ScriptType
 import kotlinx.html.a
@@ -14,8 +14,8 @@ import kotlinx.html.head
 import kotlinx.html.p
 import kotlinx.html.script
 import kotlinx.html.style
-import org.pointyware.xyz.site.dsl.DirectoryScope
-import org.pointyware.xyz.site.dsl.css
+import org.pointyware.disco.site.dsl.DirectoryScope
+import org.pointyware.disco.site.dsl.css
 
 /**
  * Renders the home page of the site.

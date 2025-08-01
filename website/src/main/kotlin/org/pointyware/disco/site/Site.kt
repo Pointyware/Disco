@@ -2,11 +2,11 @@
  * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site
+package org.pointyware.disco.site
 
-import org.pointyware.xyz.site.dsl.ProgramOutput
-import org.pointyware.xyz.site.dsl.site
-import org.pointyware.xyz.site.home.homePage
+import org.pointyware.disco.site.dsl.ProgramOutput
+import org.pointyware.disco.site.dsl.site
+import org.pointyware.disco.site.home.homePage
 
 /**
  * The main entry point for the site generation.

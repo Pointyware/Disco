@@ -2,7 +2,7 @@
  * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site.utils
+package org.pointyware.disco.site.utils
 
 /**
  * Transforms the input to conform with our rules for HTML pages.
