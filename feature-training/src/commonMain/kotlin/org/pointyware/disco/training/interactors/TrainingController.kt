@@ -22,7 +22,7 @@ import org.pointyware.disco.training.entities.Measurement
 import org.pointyware.disco.training.entities.SequentialStatistics
 import org.pointyware.disco.training.entities.SequentialTrainer
 import org.pointyware.disco.training.entities.Snapshot
-import org.pointyware.disco.training.entities.key
+import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.training.entities.optimizers.GradientDescent
 import org.pointyware.disco.training.entities.optimizers.WarmRestartExponentialLearningRate
 import kotlin.math.min

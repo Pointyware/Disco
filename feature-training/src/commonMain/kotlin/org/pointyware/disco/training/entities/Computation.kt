@@ -1,5 +1,8 @@
 package org.pointyware.disco.training.entities
 
+import org.pointyware.disco.entities.math.ComputationContext
+import org.pointyware.disco.entities.math.ComputationKey
+
 /**
  * Represents a single computation in a computation graph.
  * Each implementation should take input keys specific to the computation

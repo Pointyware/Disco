@@ -1,5 +1,7 @@
 package org.pointyware.disco.training.entities
 
+import org.pointyware.disco.entities.math.ComputationKey
+
 /**
  * Measurements can be taken from just about any part of a system.
  *

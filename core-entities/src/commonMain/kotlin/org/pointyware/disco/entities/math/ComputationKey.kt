@@ -1,4 +1,4 @@
-package org.pointyware.disco.training.entities
+package org.pointyware.disco.entities.math
 
 import kotlin.reflect.KClass
 
