@@ -1,4 +1,8 @@
-package org.pointyware.disco.entities
+/*
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Apache 2.0 license. See project root for full text.
+ */
+
+package org.pointyware.disco.entities.math
 
 import kotlin.math.ln
 import kotlin.math.sqrt
@@ -26,8 +30,8 @@ object Marsaglia {
         val iterations = (count + 1) / 2 // Generate pairs of random numbers
         (0 until iterations).forEach { _ ->
             while (true) {
-                val u = Random.nextDouble(-1.0, 1.0)
-                val v = Random.nextDouble(-1.0, 1.0)
+                val u = Random.Default.nextDouble(-1.0, 1.0)
+                val v = Random.Default.nextDouble(-1.0, 1.0)
                 val s = u * u + v * v
                 if (s < 1.0) {
                     val multiplier = sqrt(-2.0 * ln(s) / s)

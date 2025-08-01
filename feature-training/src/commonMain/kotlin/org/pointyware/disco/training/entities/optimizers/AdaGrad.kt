@@ -1,10 +1,14 @@
+/*
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Apache 2.0 license. See project root for full text.
+ */
+
 package org.pointyware.disco.training.entities.optimizers
 
 import org.pointyware.disco.entities.DataList
 import org.pointyware.disco.entities.layers.Layer
 import org.pointyware.disco.entities.tensors.Tensor
 import org.pointyware.disco.training.entities.BatchStatistics
-import org.pointyware.disco.training.entities.ComputationContext
+import org.pointyware.disco.entities.math.ComputationContext
 import org.pointyware.disco.training.entities.EpochStatistics
 import org.pointyware.disco.training.entities.Exercise
 import org.pointyware.disco.training.entities.Measurement

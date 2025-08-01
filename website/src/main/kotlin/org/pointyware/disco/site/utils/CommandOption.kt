@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license.
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site.utils
+package org.pointyware.disco.site.utils
 
-import org.pointyware.xyz.site.dsl.ProgramOutput
+import org.pointyware.disco.site.dsl.ProgramOutput
 import java.io.File
 
 /**

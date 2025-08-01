@@ -1,9 +1,15 @@
+/*
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Apache 2.0 license. See project root for full text.
+ */
+
 package org.pointyware.disco.training.entities
 
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import org.pointyware.disco.entities.loss.LossFunction
+import org.pointyware.disco.entities.math.ComputationContext
+import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.networks.SequentialNetwork
 import org.pointyware.disco.entities.tensors.Tensor
 import org.pointyware.disco.entities.tensors.TensorPool

@@ -1,14 +1,14 @@
 /*
- * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license.
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site.dsl
+package org.pointyware.disco.site.dsl
 
 import kotlinx.html.HTML
 import kotlinx.html.dom.createHTMLDocument
 import kotlinx.html.dom.write
 import kotlinx.html.html
-import org.pointyware.xyz.site.utils.sanitizeHtmlFileName
+import org.pointyware.disco.site.utils.sanitizeHtmlFileName
 import java.io.File
 
 /**

@@ -1,15 +1,15 @@
 /*
- * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license.
+ * Copyright (c) 2025 Pointyware. Use of this software is governed by the Affero GPL-3.0 license. See project root for full text.
  */
 
-package org.pointyware.xyz.site.dsl
+package org.pointyware.disco.site.dsl
 
 import java.io.File
 import java.io.PrintStream
 
 /**
  * Defines the available program outputs.
- * To control with program arguments, see [org.pointyware.xyz.site.utils.CommandOption.Output].
+ * To control with program arguments, see [org.pointyware.disco.site.utils.CommandOption.Output].
  */
 sealed interface ProgramOutput {
     fun branch(segment: String): ProgramOutput
