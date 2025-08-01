@@ -22,8 +22,6 @@ import org.pointyware.xyz.site.dsl.css
  */
 fun DirectoryScope.homePage() {
     val centerClass = "center"
-    val privacyPolicyLinkClass = "privacy-policy-link"
-    val termsOfServiceLinkClass = "terms-of-service-link"
     index {
         // Consider: https://github.com/allangomes/kotlinwind.css/tree/dev in place of kotlinx.css
         head {
@@ -44,10 +42,6 @@ fun DirectoryScope.homePage() {
                     centerClass.cls {
                         this.textAlign = "center"
                     }
-                    privacyPolicyLinkClass.cls {
-                    }
-                    termsOfServiceLinkClass.cls {
-                    }
                 }
             }
             script(
@@ -61,19 +55,15 @@ fun DirectoryScope.homePage() {
             }
         }
         body {
-            div(
-                classes = centerClass
-            ) {
+            div {
                 h1 {
-                    text("XYZ - Get your X from Y to Z")
+                    text("Docs")
                 }
-
-                p {
-                    text("XYZ is attempting to cut out the middleman, Uber, to provide more compensation to drivers and lower prices for riders. We want to allow drivers to legitimately be their own boss, instead of being a cog in the Uber machine – and \"legit\" means \"legal\" – so we're also helping drivers navigate the complexity of starting and running their own business, including managing assets, revenue, taxes, employees, and on. We are not a rideshare company, we are a rideshare platform.")
-                }
-
-                p {
-                    text("Our mission is ultimately to operate our service for drivers and riders at-cost, and to be a community-driven project.")
+                val sourceLink = "docs/"
+                a(
+                    href = "https://$sourceLink"
+                ) {
+                    text(sourceLink)
                 }
             }
 
@@ -83,26 +73,11 @@ fun DirectoryScope.homePage() {
                 }
                 p {
                     text("This site is powered by Kotlin and kotlinx.html. - view the source code on GitHub: ")
+                    val sourceLink = "github.com/Pointyware/Disco/website/"
                     a(
-                        href = "https://github.com/Pointyware/XYZ"
+                        href = "https://$sourceLink"
                     ) {
-                        text("github.com/Pointyware/XYZ")
-                    }
-                }
-                p {
-                    a(
-                        href = "./privacy-policy",
-                        classes = privacyPolicyLinkClass
-                    ) {
-                        text("Privacy Policy")
-                    }
-                }
-                p {
-                    a(
-                        href = "./terms-of-service",
-                        classes = termsOfServiceLinkClass
-                    ) {
-                        text("Terms of Service")
+                        text(sourceLink)
                     }
                 }
             }
