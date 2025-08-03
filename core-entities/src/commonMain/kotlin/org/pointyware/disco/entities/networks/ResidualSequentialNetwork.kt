@@ -5,6 +5,7 @@
 package org.pointyware.disco.entities.networks
 
 import org.pointyware.disco.entities.layers.DenseLayer
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.regularizers.Regularizer
 import org.pointyware.disco.entities.tensors.Tensor
 
@@ -21,6 +22,9 @@ class ResidualSequentialNetwork(
 
     override val parameterCount: Int
         get() = super.parameterCount + regularizer.parameterCount
+
+    override val computationGraph: ComputationGraph
+        get() = TODO("Not yet implemented")
 
     init {
         require(residualSplit >= 0) {
