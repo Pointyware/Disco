@@ -7,7 +7,7 @@ package org.pointyware.disco.entities.math
 import org.pointyware.disco.entities.ExperimentalNetworkApi
 
 @OptIn(ExperimentalNetworkApi::class)
-class AdditionNode(
+data class AdditionNode(
     override val id: ComputationKey<Int>,
     override val inputEdges: Set<ComputationKey<Int>>,
 ): ComputationGraph.Node {
