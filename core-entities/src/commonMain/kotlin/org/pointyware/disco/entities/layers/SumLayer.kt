@@ -22,15 +22,20 @@ class SumLayer(
     @ExperimentalNetworkApi
     override val graph: ComputationGraph
         get() = ComputationGraph(
-            nodes = emptySet(),
-            edges = emptySet()
+            nodes = emptySet()
         )
 
     @OptIn(ExperimentalNetworkApi::class)
     class SumNode(
         val inputIds: Set<ComputationKey<Tensor>>,
         val outputId: ComputationKey<Tensor>,
-    ): ComputationGraph.Node() {
+    ): ComputationGraph.Node {
+
+        override val inputEdges: Set<ComputationKey<*>>
+            get() = inputIds
+        override val outputEdges: Set<ComputationKey<*>>
+            get() = setOf(outputId)
+
         override fun compute(context: ComputationContext) {
             val output = context.get(outputId)
             inputIds.forEach {

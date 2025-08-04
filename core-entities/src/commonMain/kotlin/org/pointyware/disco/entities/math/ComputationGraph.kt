@@ -16,8 +16,7 @@ import org.pointyware.disco.entities.ExperimentalNetworkApi
  */
 @ExperimentalNetworkApi
 class ComputationGraph(
-    val nodes: Set<Node>,
-    val edges: Set<Edge>
+    val nodes: Set<Node>
 ) {
 
     val computeOrder: List<Node> by lazy {
@@ -33,16 +32,23 @@ class ComputationGraph(
     /**
      * A computation node represents an operation in the computation graph.
      *
-     * Nodes can have many inputs and many outputs.
+     * Nodes can have multiple inputs and many outputs. Edges are
+     * represented as adjacency lists on each node: [inputEdges] and [outputEdges].
      */
-    abstract class Node {
+    interface Node {
+        /**
+         * Incoming edges to this node.
+         */
+        val inputEdges: Set<ComputationKey<*>>
+
+        /**
+         * Outgoing edges from this node.
+         */
+        val outputEdges: Set<ComputationKey<*>>
+
         /**
          * Computes the output value of the node in terms of its inputs.
          */
         abstract fun compute(context: ComputationContext)
     }
-    /**
-     * A computation edge represents a dependency between two computation nodes in the graph.
-     */
-    data class Edge(val from: Node, val to: Node)
 }

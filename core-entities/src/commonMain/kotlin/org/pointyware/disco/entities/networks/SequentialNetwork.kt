@@ -25,8 +25,7 @@ open class SequentialNetwork(
         // Create LayerNode for each layer. Create Edge for each connection between layers.
 
         ComputationGraph(
-            nodes = emptySet(),
-            edges = emptySet()
+            nodes = emptySet()
         )
     }
 
