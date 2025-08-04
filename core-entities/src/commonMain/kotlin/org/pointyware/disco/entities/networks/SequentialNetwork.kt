@@ -21,8 +21,14 @@ open class SequentialNetwork(
         get() = layers.sumOf { it.parameterCount }
 
     @ExperimentalNetworkApi
-    override val graph: ComputationGraph
-        get() = TODO("Not yet implemented")
+    override val graph = run {
+        // Create LayerNode for each layer. Create Edge for each connection between layers.
+
+        ComputationGraph(
+            nodes = emptySet(),
+            edges = emptySet()
+        )
+    }
 
     override fun predict(input: Tensor): Tensor {
         return layers.fold(input) { acc, layer ->
