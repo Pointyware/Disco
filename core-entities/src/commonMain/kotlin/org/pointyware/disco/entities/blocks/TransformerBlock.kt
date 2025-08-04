@@ -4,6 +4,8 @@
 
 package org.pointyware.disco.entities.blocks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -64,6 +66,10 @@ class TransformerBlock(
         return decoderOutput
     }
 
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
+
     inner class Encoder(
         // positionalEncoding
     ): Block {
@@ -71,6 +77,10 @@ class TransformerBlock(
         fun calculate(input: Tensor): Tensor {
             TODO("Implement as documented above")
         }
+
+        @ExperimentalNetworkApi
+        override val graph: ComputationGraph
+            get() = TODO("Not yet implemented")
     }
 
     inner class Decoder(
@@ -80,5 +90,9 @@ class TransformerBlock(
         fun calculate(input: Tensor, encoderOutput: Tensor): Tensor {
             TODO("Implement as documented above")
         }
+
+        @ExperimentalNetworkApi
+        override val graph: ComputationGraph
+            get() = TODO("Not yet implemented")
     }
 }

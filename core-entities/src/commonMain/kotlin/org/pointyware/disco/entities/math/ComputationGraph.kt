@@ -12,6 +12,7 @@ package org.pointyware.disco.entities.math
  * The computation retrieves the identified values in a type-safe manner to perform
  * its operations, before inserting the results back into the map.
  */
+@ExperimentalNetworkApi
 class ComputationGraph(
     val nodes: Set<Node<*>>,
     val edges: Set<Edge<*, *>>

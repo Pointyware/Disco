@@ -4,6 +4,7 @@
 
 package org.pointyware.disco.entities.networks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ActivationFunction
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.math.ComputationGraph
@@ -19,7 +20,8 @@ open class SequentialNetwork(
     override val parameterCount: Int
         get() = layers.sumOf { it.parameterCount }
 
-    override val computationGraph: ComputationGraph
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
         get() = TODO("Not yet implemented")
 
     override fun predict(input: Tensor): Tensor {

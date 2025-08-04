@@ -4,6 +4,7 @@
 
 package org.pointyware.disco.entities.networks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.tensors.Tensor
@@ -22,7 +23,8 @@ interface Network {
     /**
      * Returns the computation graph of the network.
      */
-    val computationGraph: ComputationGraph
+    @ExperimentalNetworkApi
+    val graph: ComputationGraph
 
     /**
      * Takes the input and performs a forward pass through the network, returning the output

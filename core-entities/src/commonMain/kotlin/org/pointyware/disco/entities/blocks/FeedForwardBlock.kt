@@ -4,10 +4,17 @@
 
 package org.pointyware.disco.entities.blocks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+import org.pointyware.disco.entities.math.ComputationGraph
+
 /**
  *
  */
 class FeedForwardBlock: Block {
     override val parameterCount: Int
         get() = 0
+
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
 }

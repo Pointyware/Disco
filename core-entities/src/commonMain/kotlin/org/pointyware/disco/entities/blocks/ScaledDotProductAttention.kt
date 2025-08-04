@@ -4,7 +4,9 @@
 
 package org.pointyware.disco.entities.blocks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.SoftArgMax
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 import kotlin.math.pow
 
@@ -40,4 +42,8 @@ class ScaledDotProductAttention(
         val softmax = softmax.calculate(matMul)
         return softmax.matrixMultiply(value)
     }
+
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
 }
