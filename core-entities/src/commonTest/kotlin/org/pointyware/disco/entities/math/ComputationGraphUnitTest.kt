@@ -31,7 +31,6 @@ class ComputationGraphUnitTest {
             Edges: (alpha, beta), (beta, gamma), (beta, epsilon), (gamma, delta),
                    (delta, epsilon), (epsilon, zetta),(delta, zetta), (epsilon, zetta)
          */
-        val input = IdProvider.getNextId().key<Int>()
         val alpha = IdProvider.getNextId().key<Int>()
         val beta = IdProvider.getNextId().key<Int>()
         val gamma = IdProvider.getNextId().key<Int>()
@@ -39,7 +38,7 @@ class ComputationGraphUnitTest {
         val epsilon = IdProvider.getNextId().key<Int>()
         val zetta = IdProvider.getNextId().key<Int>()
 
-        val alphaNode = AdditionNode(alpha,setOf(input))
+//        val alphaNode = Exists implicitly in computation context
         val betaNode = AdditionNode(beta, setOf(alpha))
         val gammaNode = AdditionNode(gamma, setOf(beta))
         val deltaNode = AdditionNode(delta, setOf(gamma))
@@ -48,12 +47,12 @@ class ComputationGraphUnitTest {
 
         val graph = ComputationGraph(
             nodes = setOf(
-                alphaNode, betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
+                betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
             )
         )
 
         val expectedOrder = listOf(
-            alphaNode, betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
+            betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
         )
         assertEquals(expectedOrder, graph.computeOrder)
     }
