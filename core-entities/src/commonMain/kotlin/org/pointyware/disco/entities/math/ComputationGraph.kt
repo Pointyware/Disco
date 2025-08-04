@@ -19,8 +19,30 @@ class ComputationGraph(
     val nodes: Set<Node>
 ) {
 
+    /**
+     * Determines the order in which the nodes should be computed, using a topological sort.
+     */
     val computeOrder: List<Node> by lazy {
-        TODO("Not yet implemented")
+        val keyNodeMap = nodes.associateBy { it.id }
+        val nodeOutputMap = nodes.flatMap { node -> node.inputEdges.map { it to node.id } }.toMap()
+        val visited = mutableSetOf<ComputationKey<*>>()
+        val result = mutableListOf<Node>()
+        fun visit(node: Node) {
+            if (visited.contains(node.id)) {
+                return
+            }
+            visited.add(node.id)
+            nodeOutputMap[node.id]?.let { outputId ->
+                // null indicates computation dead-end
+                keyNodeMap[outputId]?.let { visit(it) }
+            }
+
+            result.add(node)
+        }
+        nodes.forEach { node ->
+            visit(node)
+        }
+        result.reversed()
     }
 
     fun compute(context: ComputationContext) {
