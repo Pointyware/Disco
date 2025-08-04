@@ -23,6 +23,16 @@ class ComputationGraph(
     val edges: Set<Edge<*, *>>
 ) {
 
+    val computeOrder: List<Node<*>> by lazy {
+        TODO("Not yet implemented")
+    }
+
+    fun compute(context: ComputationContext) {
+        computeOrder.forEach { node ->
+            node.compute(context)
+        }
+    }
+
     /**
      * A computation node represents an operation in the computation graph.
      */
@@ -33,7 +43,7 @@ class ComputationGraph(
         /**
          * Computes the output value of the node in terms of its inputs.
          */
-        abstract fun compute(): O
+        abstract fun compute(context: ComputationContext): O
 
         /**
          * Computes the derivative of the output value of the node in terms of its inputs.
