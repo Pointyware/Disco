@@ -4,7 +4,9 @@
 
 package org.pointyware.disco.entities.layers
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ScalarActivationFunction
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -23,6 +25,10 @@ data class ConvolutionalLayer(
 ): Layer {
     override val parameterCount: Int
         get() = kernel.totalSize + activationFunction.parameterCount
+
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
 
     override fun predict(
         input: Tensor,

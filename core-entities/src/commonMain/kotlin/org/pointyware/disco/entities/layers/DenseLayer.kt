@@ -4,7 +4,9 @@
 
 package org.pointyware.disco.entities.layers
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ActivationFunction
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -21,6 +23,10 @@ class DenseLayer(
 
     override val parameterCount: Int
         get() = weights.totalSize + biases.totalSize + activationFunction.parameterCount
+
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
 
     override fun preactivation(
         input: Tensor,
