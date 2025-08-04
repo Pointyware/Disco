@@ -55,7 +55,7 @@ class ComputationGraph(
      * A computation node represents an operation in the computation graph.
      *
      * Nodes can have multiple inputs and many outputs. Edges are
-     * represented as adjacency lists on each node: [inputEdges] and [outputEdges].
+     * represented as adjacency lists on each node: [inputs] and [outputEdges].
      */
     interface Node {
         /**
@@ -65,9 +65,9 @@ class ComputationGraph(
         val id: ComputationKey<*>
 
         /**
-         * Incoming edges to this node.
+         * Values that this node depends on to compute its output(s).
          */
-        val inputEdges: Set<ComputationKey<*>>
+        val inputs: Set<ComputationKey<*>>
 
         /**
          * Computes the output value of the node in terms of its inputs.

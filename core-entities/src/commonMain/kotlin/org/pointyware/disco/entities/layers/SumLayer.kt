@@ -31,7 +31,7 @@ class SumLayer(
         val inputIds: Set<ComputationKey<Tensor>>,
     ): ComputationGraph.Node {
 
-        override val inputEdges: Set<ComputationKey<*>>
+        override val inputs: Set<ComputationKey<*>>
             get() = inputIds
 
         override fun compute(context: ComputationContext) {
