@@ -19,11 +19,11 @@ inline fun <reified T: Any> outputKey() = Long.MAX_VALUE.key<T>()
  */
 @ExperimentalNetworkApi
 class ComputationGraph(
-    val nodes: Set<Node<*>>,
-    val edges: Set<Edge<*, *>>
+    val nodes: Set<Node>,
+    val edges: Set<Edge>
 ) {
 
-    val computeOrder: List<Node<*>> by lazy {
+    val computeOrder: List<Node> by lazy {
         TODO("Not yet implemented")
     }
 
@@ -35,26 +35,22 @@ class ComputationGraph(
 
     /**
      * A computation node represents an operation in the computation graph.
+     *
+     * Nodes can have many inputs and many outputs.
      */
-    abstract class Node<O: Any>(
-        val inputs: Set<ComputationKey<*>>,
-        val output: ComputationKey<O>
-    ) {
+    abstract class Node {
         /**
          * Computes the output value of the node in terms of its inputs.
          */
-        abstract fun compute(context: ComputationContext): O
+        abstract fun compute(context: ComputationContext)
 
         /**
          * Computes the derivative of the output value of the node in terms of its inputs.
          */
-        abstract fun derivative(): O
+        abstract fun derivative(context: ComputationContext)
     }
     /**
      * A computation edge represents a dependency between two computation nodes in the graph.
      */
-    data class Edge<I: Any, O: Any>(
-        val from: Node<I>,
-        val to: Node<O>
-    )
+    data class Edge(val from: Node, val to: Node)
 }
