@@ -37,7 +37,8 @@ class ComputationGraph(
      */
     interface Node {
         /**
-         * Unique identifier for the node.
+         * Unique identifier for the node. This is where the computed value will
+         * be stored in the [ComputationContext].
          */
         val id: ComputationKey<*>
 
@@ -47,13 +48,8 @@ class ComputationGraph(
         val inputEdges: Set<ComputationKey<*>>
 
         /**
-         * Outgoing edges from this node.
-         */
-        val outputEdges: Set<ComputationKey<*>>
-
-        /**
          * Computes the output value of the node in terms of its inputs.
          */
-        abstract fun compute(context: ComputationContext)
+        fun compute(context: ComputationContext)
     }
 }

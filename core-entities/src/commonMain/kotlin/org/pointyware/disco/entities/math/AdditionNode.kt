@@ -10,15 +10,12 @@ import org.pointyware.disco.entities.ExperimentalNetworkApi
 class AdditionNode(
     override val id: ComputationKey<Int>,
     override val inputEdges: Set<ComputationKey<Int>>,
-    val output: ComputationKey<Int>
 ): ComputationGraph.Node {
-
-    override val outputEdges: Set<ComputationKey<Int>> get() = setOf(output)
 
     override fun compute(context: ComputationContext) {
         val outputValue = inputEdges.sumOf {
             context.get(it)
         }
-        context.put(output, outputValue)
+        context.put(id, outputValue)
     }
 }

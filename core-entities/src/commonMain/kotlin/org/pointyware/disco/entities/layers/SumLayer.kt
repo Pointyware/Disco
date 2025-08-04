@@ -29,16 +29,13 @@ class SumLayer(
     class SumNode(
         override val id: ComputationKey<Tensor>,
         val inputIds: Set<ComputationKey<Tensor>>,
-        val outputId: ComputationKey<Tensor>,
     ): ComputationGraph.Node {
 
         override val inputEdges: Set<ComputationKey<*>>
             get() = inputIds
-        override val outputEdges: Set<ComputationKey<*>>
-            get() = setOf(outputId)
 
         override fun compute(context: ComputationContext) {
-            val output = context.get(outputId)
+            val output = context.get(id)
             inputIds.forEach {
                 output += context.get(it)
             }
