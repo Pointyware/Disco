@@ -4,6 +4,8 @@
 
 package org.pointyware.disco.entities.blocks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -50,4 +52,8 @@ class MultiHeadAttention(
         }
         return Tensor.concat(attention)
     }
+
+    @ExperimentalNetworkApi
+    override val graph: ComputationGraph
+        get() = TODO("Not yet implemented")
 }
