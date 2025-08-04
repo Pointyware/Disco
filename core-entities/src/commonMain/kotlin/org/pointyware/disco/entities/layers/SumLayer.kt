@@ -37,9 +37,5 @@ class SumLayer(
                 output += context.get(it)
             }
         }
-
-        override fun derivative(context: ComputationContext) {
-            TODO("Not yet implemented")
-        }
     }
 }

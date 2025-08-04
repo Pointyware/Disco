@@ -40,11 +40,6 @@ class ComputationGraph(
          * Computes the output value of the node in terms of its inputs.
          */
         abstract fun compute(context: ComputationContext)
-
-        /**
-         * Computes the derivative of the output value of the node in terms of its inputs.
-         */
-        abstract fun derivative(context: ComputationContext)
     }
     /**
      * A computation edge represents a dependency between two computation nodes in the graph.
