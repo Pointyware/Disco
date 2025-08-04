@@ -9,9 +9,9 @@ import kotlin.reflect.KClass
 /**
  * Keys which identify a specific element of computation in some context map.
  */
-data class ComputationKey<T: Any>(
+data class ComputationKey<out T: Any>(
     val id: Long,
-    val type: KClass<T>
+    val type: KClass<out T>
 ) {
 }
 
