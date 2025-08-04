@@ -37,6 +37,11 @@ class ComputationGraph(
      */
     interface Node {
         /**
+         * Unique identifier for the node.
+         */
+        val id: ComputationKey<*>
+
+        /**
          * Incoming edges to this node.
          */
         val inputEdges: Set<ComputationKey<*>>

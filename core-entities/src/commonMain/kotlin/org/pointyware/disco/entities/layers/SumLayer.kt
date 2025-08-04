@@ -27,6 +27,7 @@ class SumLayer(
 
     @OptIn(ExperimentalNetworkApi::class)
     class SumNode(
+        override val id: ComputationKey<Tensor>,
         val inputIds: Set<ComputationKey<Tensor>>,
         val outputId: ComputationKey<Tensor>,
     ): ComputationGraph.Node {
