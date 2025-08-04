@@ -4,6 +4,11 @@
 
 package org.pointyware.disco.entities.math
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+
+inline fun <reified T: Any> inputKey() = 0L.key<T>()
+inline fun <reified T: Any> outputKey() = Long.MAX_VALUE.key<T>()
+
 /**
  * A computation graph consists of nodes that represent operations and edges that
  * represent dependencies between operations in the graph.

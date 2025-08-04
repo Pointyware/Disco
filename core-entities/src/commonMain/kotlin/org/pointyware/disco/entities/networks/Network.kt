@@ -6,7 +6,6 @@ package org.pointyware.disco.entities.networks
 
 import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.math.ComputationGraph
-import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -51,6 +50,3 @@ interface Network {
         biasGradients: List<Tensor>
     )
 }
-
-inline fun <reified T: Any> inputKey() = 0L.key<T>()
-inline fun <reified T: Any> outputKey() = Long.MAX_VALUE.key<T>()
