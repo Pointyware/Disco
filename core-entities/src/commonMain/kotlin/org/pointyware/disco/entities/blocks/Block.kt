@@ -4,11 +4,15 @@
 
 package org.pointyware.disco.entities.blocks
 
+import org.pointyware.disco.entities.math.ComputationComponent
+
 /**
  * A neural network block is a sub-unit of a complex neural network
  * that performs a specific function.
  */
-interface Block {
+interface Block: ComputationComponent {
+    /**
+     * The number of parameters in the block.
+     */
     val parameterCount: Int
-    // fun calculate(context: Map<Long, Tensor>): Tensor
 }
