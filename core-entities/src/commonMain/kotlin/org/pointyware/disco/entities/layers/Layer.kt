@@ -9,10 +9,11 @@ import org.pointyware.disco.entities.tensors.Tensor
 /**
  * A single layer in a neural network. These can be simple layers like
  * dense layers, or aggregates like transformers or convolutional.
- *
- * TODO: consider splitting concerns into Learning/TrainingLayer and InferenceLayer?
  */
 interface Layer {
+    /**
+     * The number of parameters in the layer.
+     */
     val parameterCount: Int
 
     /**
