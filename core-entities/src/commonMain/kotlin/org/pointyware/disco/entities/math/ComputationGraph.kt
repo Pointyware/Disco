@@ -7,12 +7,12 @@ package org.pointyware.disco.entities.math
 import org.pointyware.disco.entities.ExperimentalNetworkApi
 
 /**
- * A computation graph consists of nodes that represent operations and edges that
- * represent dependencies between operations in the graph.
+ * A computation graph consists of nodes that represent operations on inputs
+ * that produce one or more outputs. The collection of nodes form a hypergraph.
  *
- * A computation graph works on a ContextMap with values identified by typed keys.
- * The computation retrieves the identified values in a type-safe manner to perform
- * its operations, before inserting the results back into the map.
+ * A computation graph works on a [ComputationContext] with values identified
+ * by typed keys. The computation retrieves the identified values in a type-safe
+ * manner to perform its operations, before inserting the results back into the map.
  */
 @ExperimentalNetworkApi
 class ComputationGraph(
@@ -58,16 +58,16 @@ class ComputationGraph(
      * represented as adjacency lists on each node: [inputs] and [outputEdges].
      */
     interface Node {
-        /**
-         * Unique identifier for the node. This is where the computed value will
-         * be stored in the [ComputationContext].
-         */
-        val id: ComputationKey<*>
 
         /**
          * Values that this node depends on to compute its output(s).
          */
         val inputs: Set<ComputationKey<*>>
+
+        /**
+         * Values that this node produces as output.
+         */
+        val outputs: Set<ComputationKey<*>>
 
         /**
          * Computes the output value of the node in terms of its inputs.
