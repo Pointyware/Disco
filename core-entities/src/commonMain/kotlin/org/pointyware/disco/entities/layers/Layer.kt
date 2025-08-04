@@ -4,18 +4,22 @@
 
 package org.pointyware.disco.entities.layers
 
-import org.pointyware.disco.entities.math.ComputationComponent
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
  * A single layer in a neural network. These can be simple layers like
  * dense layers, or aggregates like transformers or convolutional.
  */
-interface Layer: ComputationComponent {
+interface Layer {
     /**
      * The number of parameters in the layer.
      */
     val parameterCount: Int
+
+    @OptIn(ExperimentalNetworkApi::class)
+    val node: ComputationGraph.Node
 
     /**
      * Forward pass through the layer.

@@ -25,7 +25,7 @@ class DenseLayer(
         get() = weights.totalSize + biases.totalSize + activationFunction.parameterCount
 
     @ExperimentalNetworkApi
-    override val graph: ComputationGraph
+    override val node: ComputationGraph.Node
         get() = TODO("Not yet implemented")
 
     override fun preactivation(

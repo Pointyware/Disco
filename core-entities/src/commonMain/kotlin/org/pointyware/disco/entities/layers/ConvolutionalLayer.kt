@@ -27,7 +27,7 @@ data class ConvolutionalLayer(
         get() = kernel.totalSize + activationFunction.parameterCount
 
     @ExperimentalNetworkApi
-    override val graph: ComputationGraph
+    override val node: ComputationGraph.Node
         get() = TODO("Not yet implemented")
 
     override fun predict(
