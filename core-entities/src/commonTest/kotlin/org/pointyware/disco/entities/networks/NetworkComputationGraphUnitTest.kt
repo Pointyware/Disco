@@ -23,9 +23,6 @@ import kotlin.test.assertContentEquals
 @OptIn(ExperimentalNativeApi::class, ExperimentalNetworkApi::class)
 class NetworkComputationGraphUnitTest {
 
-    private var inputKey = IdProvider.getNextId().key<Tensor>()
-    private var outputKey = IdProvider.getNextId().key<Tensor>()
-
     @BeforeTest
     fun setUp() {
 
@@ -71,9 +68,9 @@ class NetworkComputationGraphUnitTest {
         }
         val graph = network.graph
         val computationContext = ComputationContext()
-        computationContext.put(inputKey, input)
+        computationContext.put(graph.inputId, input)
         graph.compute(computationContext)
-        val output = computationContext.get(outputKey)
+        val output = computationContext.get(graph.outputId)
 
         // The output should be a tensor of shape (1, 1) since the last layer has 1 output neuron
         assert(output.dimensions.contentEquals(intArrayOf(1, 1))) { "Output shape should be (1, 1), but was ${output.shapeString}" }
