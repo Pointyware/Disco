@@ -4,9 +4,13 @@
 
 package org.pointyware.disco.entities.networks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ActivationFunction
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.math.ComputationGraph
+import org.pointyware.disco.entities.math.ComputationKey
+import org.pointyware.disco.entities.math.IdProvider
+import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -19,8 +23,31 @@ open class SequentialNetwork(
     override val parameterCount: Int
         get() = layers.sumOf { it.parameterCount }
 
-    override val computationGraph: ComputationGraph
-        get() = TODO("Not yet implemented")
+    @ExperimentalNetworkApi
+    override val graph = run {
+        // Create LayerNode for each layer. Create Edge for each connection between layers.
+        val inputId = IdProvider.getNextId().key<Tensor>()
+        var lastId = inputId
+        val nodes = layers.map { layer ->
+            val layerId = IdProvider.getNextId().key<Tensor>()
+            val node = DenseLayer.Node(layer, lastId, layerId)
+            lastId = layerId
+            node
+        }.toSet()
+
+        SequentialComputationGraph(
+            inputId = inputId,
+            outputId = lastId,
+            nodes = nodes
+        )
+    }
+
+    @OptIn(ExperimentalNetworkApi::class)
+    class SequentialComputationGraph(
+        val inputId: ComputationKey<Tensor>,
+        val outputId: ComputationKey<Tensor>,
+        nodes: Set<Node>
+    ) : ComputationGraph(nodes)
 
     override fun predict(input: Tensor): Tensor {
         return layers.fold(input) { acc, layer ->

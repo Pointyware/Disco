@@ -4,6 +4,7 @@
 
 package org.pointyware.disco.entities.networks
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.regularizers.Regularizer
@@ -23,7 +24,8 @@ class ResidualSequentialNetwork(
     override val parameterCount: Int
         get() = super.parameterCount + regularizer.parameterCount
 
-    override val computationGraph: ComputationGraph
+    @ExperimentalNetworkApi
+    override val graph: SequentialComputationGraph
         get() = TODO("Not yet implemented")
 
     init {

@@ -4,22 +4,29 @@
 
 package org.pointyware.disco.entities.layers
 
+import org.pointyware.disco.entities.ExperimentalNetworkApi
+import org.pointyware.disco.entities.math.ComputationGraph
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
  * A single layer in a neural network. These can be simple layers like
  * dense layers, or aggregates like transformers or convolutional.
- *
- * TODO: consider splitting concerns into Learning/TrainingLayer and InferenceLayer?
  */
 interface Layer {
+    /**
+     * The number of parameters in the layer.
+     */
     val parameterCount: Int
+
+    @OptIn(ExperimentalNetworkApi::class)
+    val node: ComputationGraph.Node
 
     /**
      * Forward pass through the layer.
      *
      * @param input The input tensor to the layer.
      * @return The output tensor after calculations.
+     * TODO: replace with forward prop computation node
      */
     fun predict(input: Tensor, output: Tensor)
 
@@ -28,6 +35,7 @@ interface Layer {
      *
      * @param input The input tensor to the layer.
      * @return The output tensor after calculations.
+     * TODO: replace with forward prop computation node
      */
     fun forward(input: Tensor): Tensor
 
@@ -36,6 +44,7 @@ interface Layer {
      * @param input Either the original network input or the activation from a previous layer.
      * @param activation The output from this layer.
      * @param derivative The derivative of the output of this layer for the given input.
+     * TODO: replace with forward prop/derivative computation node
      */
     fun forward(input: Tensor, activation: Tensor, derivative: Tensor)
 
@@ -53,6 +62,8 @@ interface Layer {
      * @param weightGradient Receives the gradient of the loss with respect to the weights.
      * @param biasGradient Receives the gradient of the loss with respect to the biases.
      * @param priorError Receives the error to propagate backwards.
+     *
+     * TODO: replace with backward prop computation node
      */
     fun backward(
         error: Tensor,
