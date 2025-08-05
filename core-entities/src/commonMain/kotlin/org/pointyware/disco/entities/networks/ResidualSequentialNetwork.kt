@@ -25,7 +25,7 @@ class ResidualSequentialNetwork(
         get() = super.parameterCount + regularizer.parameterCount
 
     @ExperimentalNetworkApi
-    override val graph: ComputationGraph
+    override val graph: SequentialComputationGraph
         get() = TODO("Not yet implemented")
 
     init {
