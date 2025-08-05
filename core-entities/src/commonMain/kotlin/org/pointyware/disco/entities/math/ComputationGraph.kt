@@ -23,26 +23,48 @@ class ComputationGraph(
      * Determines the order in which the nodes should be computed, using a topological sort.
      */
     val computeOrder: List<Node> by lazy {
-        val keyNodeMap = nodes.associateBy { it.id }
-        val nodeOutputMap = nodes.flatMap { node -> node.inputEdges.map { it to node.id } }.toMap()
-        val visited = mutableSetOf<ComputationKey<*>>()
+        val visited = mutableSetOf<Node>()
+        val complete = mutableSetOf<Node>()
         val result = mutableListOf<Node>()
+        val nodeNeighbors: Map<Node, List<Node>> = nodes.associateWith { node ->
+            // find all nodes whose inputs depend on current node's outputs
+            nodes.filter { it.inputs.any { input -> input in node.outputs } }
+        }
         fun visit(node: Node) {
-            if (visited.contains(node.id)) {
-                return
+            when {
+                visited.contains(node) -> {
+                    return
+                }
+                complete.contains(node) -> {
+                    throw IllegalStateException("Cycle detected in computation graph")
+                }
             }
-            visited.add(node.id)
-            nodeOutputMap[node.id]?.let { outputId ->
+
+            visited.add(node)
+
+            // visit each neighbor of node
+            nodeNeighbors[node]?.forEach { neighbor ->
                 // null indicates computation dead-end
-                keyNodeMap[outputId]?.let { visit(it) }
+//                keyNodeMap[outputId]?.let { visit(it) }
+                visit(neighbor)
             }
+            visited.remove(node)
+            complete.add(node)
 
             result.add(node)
         }
-        nodes.forEach { node ->
-            visit(node)
+        // determine input nodes
+        val outputIds = nodes.flatMap { it.outputs }.toSet()
+        val inputs = nodes.filter { it.inputs.all { input -> input != outputIds }}
+
+        // for each input node, visit the node
+        inputs.forEach { input ->
+            visit(input)
         }
-        result.reversed()
+
+        // return result in reversed order
+        result.reverse()
+        result
     }
 
     fun compute(context: ComputationContext) {
