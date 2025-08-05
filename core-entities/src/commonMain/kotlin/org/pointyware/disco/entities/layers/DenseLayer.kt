@@ -6,7 +6,9 @@ package org.pointyware.disco.entities.layers
 
 import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ActivationFunction
+import org.pointyware.disco.entities.math.ComputationContext
 import org.pointyware.disco.entities.math.ComputationGraph
+import org.pointyware.disco.entities.math.ComputationKey
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -99,6 +101,25 @@ class DenseLayer(
             val weights = Tensor.random(mean = 0.0f, stdDev = 0.1f, dimensions = intArrayOf(outputSize, inputSize))
             val biases = Tensor.zeros(outputSize, 1)
             return DenseLayer(weights, biases, activation)
+        }
+    }
+
+    @OptIn(ExperimentalNetworkApi::class)
+    class Node(
+        val layer: DenseLayer,
+        val inputId: ComputationKey<Tensor>,
+        val outputId: ComputationKey<Tensor>
+    ): ComputationGraph.Node {
+        override val inputs: Set<ComputationKey<*>>
+            get() = setOf(inputId)
+        override val outputs: Set<ComputationKey<*>>
+            get() = setOf(outputId)
+
+        override fun compute(context: ComputationContext) {
+            val input = context.get(inputId)
+            val output = Tensor(layer.weights.dimensions)
+            layer.predict(input, output)
+            context.put(outputId, output)
         }
     }
 }
