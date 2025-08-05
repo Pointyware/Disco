@@ -117,7 +117,7 @@ class DenseLayer(
 
         override fun compute(context: ComputationContext) {
             val input = context.get(inputId)
-            val output = Tensor(layer.weights.dimensions)
+            val output = Tensor(layer.biases.dimensions)
             layer.predict(input, output)
             context.put(outputId, output)
         }
