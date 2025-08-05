@@ -8,6 +8,8 @@ import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ActivationFunction
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.math.ComputationGraph
+import org.pointyware.disco.entities.math.IdProvider
+import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.tensors.Tensor
 
 /**
@@ -23,9 +25,16 @@ open class SequentialNetwork(
     @ExperimentalNetworkApi
     override val graph = run {
         // Create LayerNode for each layer. Create Edge for each connection between layers.
+        val inputId = IdProvider.getNextId().key<Tensor>()
+        var lastId = inputId
 
         ComputationGraph(
-            nodes = emptySet()
+            nodes = layers.map { layer ->
+                val layerId = IdProvider.getNextId().key<Tensor>()
+                val node = DenseLayer.Node(layer, lastId, layerId)
+                lastId = layerId
+                node
+            }.toSet()
         )
     }
 
