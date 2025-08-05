@@ -8,8 +8,6 @@ import org.pointyware.disco.entities.ExperimentalNetworkApi
 import org.pointyware.disco.entities.activations.ReLU
 import org.pointyware.disco.entities.layers.DenseLayer
 import org.pointyware.disco.entities.math.ComputationContext
-import org.pointyware.disco.entities.math.IdProvider
-import org.pointyware.disco.entities.math.key
 import org.pointyware.disco.entities.tensors.Tensor
 import kotlin.experimental.ExperimentalNativeApi
 import kotlin.test.AfterTest
