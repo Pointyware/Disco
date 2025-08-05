@@ -15,7 +15,7 @@ import org.pointyware.disco.entities.ExperimentalNetworkApi
  * manner to perform its operations, before inserting the results back into the map.
  */
 @ExperimentalNetworkApi
-class ComputationGraph(
+open class ComputationGraph(
     val nodes: Set<Node>
 ) {
 
