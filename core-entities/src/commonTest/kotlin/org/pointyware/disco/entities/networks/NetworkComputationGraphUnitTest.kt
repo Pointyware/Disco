@@ -21,7 +21,7 @@ import kotlin.test.assertContentEquals
  * Unit tests for inference through computation graph.
  */
 @OptIn(ExperimentalNativeApi::class, ExperimentalNetworkApi::class)
-class ComputationGraphUnitTest {
+class NetworkComputationGraphUnitTest {
 
     private var inputKey = IdProvider.getNextId().key<Tensor>()
     private var outputKey = IdProvider.getNextId().key<Tensor>()
