@@ -39,11 +39,11 @@ class ComputationGraphUnitTest {
         val zetta = IdProvider.getNextId().key<Int>()
 
 //        val alphaNode = Exists implicitly in computation context
-        val betaNode = AdditionNode(beta, setOf(alpha))
-        val gammaNode = AdditionNode(gamma, setOf(beta))
-        val deltaNode = AdditionNode(delta, setOf(gamma))
-        val epsilonNode = AdditionNode(epsilon, setOf(beta, gamma))
-        val zettaNode = AdditionNode(zetta, setOf(delta, epsilon))
+        val betaNode = AdditionNode(setOf(alpha), beta)
+        val gammaNode = AdditionNode(setOf(beta), gamma)
+        val deltaNode = AdditionNode(setOf(gamma), delta)
+        val epsilonNode = AdditionNode(setOf(beta, gamma), epsilon)
+        val zettaNode = AdditionNode(setOf(delta, epsilon), zetta)
 
         val graph = ComputationGraph(
             nodes = setOf(
