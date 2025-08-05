@@ -47,7 +47,7 @@ class ComputationGraphUnitTest {
 
         val graph = ComputationGraph(
             nodes = setOf(
-                betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
+                betaNode, gammaNode, epsilonNode, deltaNode, zettaNode
             )
         )
 
