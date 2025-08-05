@@ -19,4 +19,8 @@ data class AdditionNode(
         }
         context.put(outputId, outputValue)
     }
+
+    override fun toString(): String {
+        return "{$inputs -> $outputId}"
+    }
 }

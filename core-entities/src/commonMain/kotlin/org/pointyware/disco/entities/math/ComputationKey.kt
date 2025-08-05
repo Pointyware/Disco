@@ -13,6 +13,9 @@ data class ComputationKey<out T: Any>(
     val id: Long,
     val type: KClass<out T>
 ) {
+    override fun toString(): String {
+        return "($id, ${type.simpleName})"
+    }
 }
 
 inline fun <reified T: Any> Long.key(type: KClass<T> = T::class): ComputationKey<T> {
