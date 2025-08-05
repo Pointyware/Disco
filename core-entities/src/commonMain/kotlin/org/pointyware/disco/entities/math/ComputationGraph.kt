@@ -32,10 +32,10 @@ class ComputationGraph(
         }
         fun visit(node: Node) {
             when {
-                visited.contains(node) -> {
+                complete.contains(node) -> {
                     return
                 }
-                complete.contains(node) -> {
+                visited.contains(node) -> {
                     throw IllegalStateException("Cycle detected in computation graph")
                 }
             }
