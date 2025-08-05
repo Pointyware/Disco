@@ -9,6 +9,7 @@ import kotlin.test.AfterTest
 import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
+import kotlin.test.assertFailsWith
 
 @OptIn(ExperimentalNetworkApi::class)
 class ComputationGraphUnitTest {
@@ -55,5 +56,34 @@ class ComputationGraphUnitTest {
             betaNode, gammaNode, deltaNode, epsilonNode, zettaNode
         )
         assertEquals(expectedOrder, graph.computeOrder)
+    }
+
+    @Test
+    fun cycles_throw_exception() {
+        /*
+        Given: a graph with nodes and edges
+            Nodes: alpha, beta, gamma, delta
+            Edges: (alpha, beta), (beta, gamma), (gamma, alpha), (gamma, delta)
+         */
+        val alpha = IdProvider.getNextId().key<Int>()
+        val beta = IdProvider.getNextId().key<Int>()
+        val gamma = IdProvider.getNextId().key<Int>()
+        val delta = IdProvider.getNextId().key<Int>()
+
+//        val alphaNode = Exists implicitly in computation context
+        val betaNode = AdditionNode(setOf(alpha), beta)
+        val gammaNode = AdditionNode(setOf(beta), gamma)
+        val reverseNode = AdditionNode(setOf(gamma), alpha)
+        val deltaNode = AdditionNode(setOf(gamma), delta)
+
+        val graph = ComputationGraph(
+            nodes = setOf(
+                betaNode, gammaNode, reverseNode, deltaNode
+            )
+        )
+
+        assertFailsWith<IllegalStateException> {
+            graph.computeOrder
+        }
     }
 }
