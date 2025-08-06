@@ -4,9 +4,9 @@
 
 package org.pointyware.disco.site
 
-import org.pointyware.disco.site.dsl.ProgramOutput
-import org.pointyware.disco.site.dsl.site
-import org.pointyware.disco.site.home.homePage
+import org.pointyware.weaver.dsl.ProgramOutput
+import org.pointyware.weaver.dsl.site
+import org.pointyware.weaver.home.homePage
 
 /**
  * The main entry point for the site generation.

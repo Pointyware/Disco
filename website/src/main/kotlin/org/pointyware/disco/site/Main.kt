@@ -4,9 +4,9 @@
 
 package org.pointyware.disco.site
 
-import org.pointyware.disco.site.dsl.ProgramOutput.PrintOutput
-import org.pointyware.disco.site.utils.ProgramInputs
-import org.pointyware.disco.site.utils.consumeArgs
+import org.pointyware.weaver.dsl.ProgramOutput.PrintOutput
+import org.pointyware.weaver.utils.ProgramInputs
+import org.pointyware.weaver.utils.consumeArgs
 
 /**
  * How to use:
