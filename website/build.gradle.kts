@@ -12,6 +12,7 @@ kotlin {
 }
 
 dependencies {
+    implementation(libs.pointyware.weaver)
 
     implementation(libs.kotlinx.dateTime)
     implementation(libs.kotlinx.coroutinesCore)
