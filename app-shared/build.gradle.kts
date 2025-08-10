@@ -33,14 +33,20 @@ kotlin {
                 api(projects.coreData)
                 api(projects.coreInteractors)
 
+                // UI
                 implementation(compose.ui)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.material3AdaptiveNavigationSuite)
 
+                // DI
                 implementation(libs.koin.core)
                 implementation(libs.koin.coroutines)
 
+                // Network
+                implementation(libs.ktor.clientCore)
+
+                // KotlinX
                 implementation(libs.kotlinx.coroutinesCore)
             }
         }
