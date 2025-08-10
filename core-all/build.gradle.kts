@@ -8,6 +8,7 @@ plugins {
     alias(libs.plugins.kotlinxKover)
     alias(libs.plugins.publishMultiplatform)
 }
+version = libs.versions.project.get()
 
 kotlin {
     jvmToolchain(21)

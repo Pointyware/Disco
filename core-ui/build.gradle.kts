@@ -11,7 +11,10 @@ plugins {
     alias(libs.plugins.composeCompiler)
     alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.kotlinxKover)
+
+    alias(libs.plugins.publishMultiplatform)
 }
+version = libs.versions.project.get()
 
 kotlin {
 
@@ -91,4 +94,38 @@ compose.resources {
     publicResClass = true
     packageOfResClass = "org.pointyware.disco.ui"
     generateResClass = always
+}
+
+mavenPublishing {
+    publishToMavenCentral()
+
+    signAllPublications()
+
+    coordinates("org.pointyware.disco", "core-ui", libs.versions.project.get())
+
+    pom {
+        name = "Disco Core"
+        description = "All Disco Core Modules"
+        inceptionYear = "2024"
+        url = "http://github.com/Pointyware/Disco"
+        licenses {
+            license {
+                name = "The Apache License, Version 2.0"
+                url = "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            }
+        }
+        developers {
+            developer {
+                id = "TSampley"
+                name = "Taush Sampley"
+                email = "tsampley@pointyware.org"
+            }
+        }
+        scm {
+            val repo = "github.com/Pointyware/Disco"
+            connection = "scm:git:git://$repo.git"
+            developerConnection = "scm:git:ssh://$repo.git"
+            url = "http://$repo/"
+        }
+    }
 }
