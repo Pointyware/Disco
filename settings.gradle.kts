@@ -33,7 +33,7 @@ include(
     ":core-interactors",
     ":core-viewmodels",
     ":core-entities",
-    ":core-all"
+//    ":core-all"
 )
 
 include(
