@@ -30,11 +30,11 @@ kotlin {
                 implementation(libs.koin.core)
                 implementation(libs.koin.coroutines)
 
-                api(libs.ktor.clientCore)
-                api(libs.ktor.clientLogging)
-                api(libs.ktor.clientResources)
-                api(libs.ktor.clientContentNegotiation)
-                api(libs.ktor.serializationKotlinxJson)
+                implementation(libs.ktor.clientCore)
+                implementation(libs.ktor.clientLogging)
+                implementation(libs.ktor.clientResources)
+                implementation(libs.ktor.clientContentNegotiation)
+                implementation(libs.ktor.serializationKotlinxJson)
 
                 implementation(libs.sqlDelight.runtime)
             }
@@ -49,20 +49,20 @@ kotlin {
         val desktopMain by getting {
             dependencies {
 //                implementation(libs.ktor)
-                api(libs.ktor.clientOkhttp)
+                implementation(libs.ktor.clientOkhttp)
                 implementation(libs.sqlDelight.jvm)
             }
         }
         val androidMain by getting {
             dependencies {
 //                implementation(libs.ktor.clientAndroid)
-                api(libs.ktor.clientOkhttp)
+                implementation(libs.ktor.clientOkhttp)
                 implementation(libs.sqlDelight.android)
             }
         }
         val iosMain by getting {
             dependencies {
-                api(libs.ktor.clientDarwin)
+                implementation(libs.ktor.clientDarwin)
                 implementation(libs.sqlDelight.native)
             }
         }
