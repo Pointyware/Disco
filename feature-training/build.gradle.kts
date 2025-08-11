@@ -33,11 +33,11 @@ kotlin {
                 api(projects.coreViewmodels)
                 api(projects.coreUi)
 
-                api(compose.ui)
-                api(compose.foundation)
-                api(compose.material3)
-                api(compose.components.resources)
-                api(libs.compose.navigation)
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.components.resources)
+                implementation(libs.compose.navigation)
 
                 implementation(compose.material3AdaptiveNavigationSuite)
 

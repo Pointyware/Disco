@@ -25,6 +25,9 @@ kotlin {
 
                 implementation(compose.ui)
                 implementation(compose.material3)
+                implementation(compose.components.resources)
+                implementation(libs.compose.navigation)
+                implementation(libs.compose.backhandler)
 
                 implementation(libs.koin.core)
                 implementation(libs.koin.coroutines)
