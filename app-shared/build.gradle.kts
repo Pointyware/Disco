@@ -28,19 +28,28 @@ kotlin {
             dependencies {
                 api(projects.featureTraining)
 
-                api(projects.coreUi)
-                api(projects.coreViewmodels)
-                api(projects.coreData)
-                api(projects.coreInteractors)
+                implementation(projects.coreUi)
+                implementation(projects.coreViewmodels)
+                implementation(projects.coreData)
+                implementation(projects.coreInteractors)
 
+                // UI
                 implementation(compose.ui)
                 implementation(compose.material3)
                 implementation(compose.materialIconsExtended)
                 implementation(compose.material3AdaptiveNavigationSuite)
+                implementation(compose.components.resources)
+                implementation(libs.compose.navigation)
+                implementation(libs.compose.backhandler)
 
+                // DI
                 implementation(libs.koin.core)
                 implementation(libs.koin.coroutines)
 
+                // Network
+                implementation(libs.ktor.clientCore)
+
+                // KotlinX
                 implementation(libs.kotlinx.coroutinesCore)
             }
         }

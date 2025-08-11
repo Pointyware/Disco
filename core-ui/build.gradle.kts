@@ -31,14 +31,14 @@ kotlin {
         val commonMain by getting {
             dependencies {
                 implementation(projects.coreViewmodels)
-                api(projects.coreEntities)
+                implementation(projects.coreEntities)
 
-                api(compose.ui)
-                api(compose.foundation)
-                api(compose.material3)
-                api(compose.components.resources)
-                api(libs.compose.navigation)
-                api(libs.compose.backhandler)
+                implementation(compose.ui)
+                implementation(compose.foundation)
+                implementation(compose.material3)
+                implementation(compose.components.resources)
+                implementation(libs.compose.navigation)
+                implementation(libs.compose.backhandler)
 
                 implementation(compose.material3AdaptiveNavigationSuite)
 
